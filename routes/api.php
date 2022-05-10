@@ -19,16 +19,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/produits',  [ApiController::class, 'index'])->middleware('auth.basic');
+/*Route::get('/produits',  [ApiController::class, 'index'])->middleware('auth.basic');
 
 Route::post('/produits/ajout',  [ApiController::class, 'store'])->middleware('auth.basic');
 
 Route::get('/produits/{id_produit}',  [ApiController::class, 'show'])->middleware('auth.basic');
 
-Route::put('/produits/{id_produit}',  [ApiController::class, 'update'])->middleware('auth.basic');
+Route::put('/produits/{id_produit}',  [ApiController::class, 'update'])->middleware('auth.basic');*/
 
 Route::put('/produits/{id_produit}/{quantity}',  [ApiController::class, 'quantity'])->middleware('auth.basic');
 
-Route::delete('/produits/{$id_produit}',  [ApiController::class, 'destroy'])->middleware('auth.basic')->name('delete');
+//Route::delete('/produits/{$id_produit}',  [ApiController::class, 'destroy'])->middleware('auth.basic')->name('delete');
 
-//Route::apiResource('/produits', ApiController::class)->middleware('auth.basic');
+Route::Resource('/produits', ApiController::class)->middleware('auth.basic');

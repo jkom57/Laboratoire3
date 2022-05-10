@@ -16,7 +16,7 @@ class ApiController extends Controller
     {
         //
         $produits = Produit::all();
-        return json_encode($produits);
+        return $produits;
     }
 
     /**
@@ -53,7 +53,7 @@ class ApiController extends Controller
     {
         //
         $produit = Produit::find($id_produit);
-        return json_encode($produit);
+        return $produit;
     }
 
     /**

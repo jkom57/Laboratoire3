@@ -38,15 +38,8 @@ class ApiController extends Controller
     public function store(Request $request)
     {
         //
-        $produit = new Produit;
-        $data = $request->json()->all();
-        $produit->name = $data['name'];
-        $produit->price = $data['price'];
-        $produit->provider = $data['provider'];
-        $produit->quantity = $data['quantity'];
-        $produit->description = $data['description'];
-        $produit->image = $data['image'];
-        $produit->save();
+        $produit = $request->all();
+        $produit = Produit::create($produit);
         return $produit;
     }
 
